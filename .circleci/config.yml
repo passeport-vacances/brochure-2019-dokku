@@ -1,0 +1,20 @@
+version: 2.1
+
+workflows:
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: master
+
+jobs:
+  deploy:
+    docker:
+      - image: circleci/python:3
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: git remote add dokku ${DOKKU_USER}@${DOKKU_HOST}:${DOKKU_APP}
+      - run: ssh-keyscan ${DOKKU_HOST} >> ~/.ssh/known_hosts
+      - run: git push dokku master
