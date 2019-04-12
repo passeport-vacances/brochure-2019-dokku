@@ -16,7 +16,7 @@ COPY fonts/* /usr/local/share/fonts/
 RUN fc-cache -fv
 
 RUN python -m pip install \
-  git+https://github.com/passeport-vacances/brochure-2019@v1.1.3 \
+  git+https://github.com/passeport-vacances/brochure-2019@v1.1.4 \
   gunicorn
 
 COPY app /app
