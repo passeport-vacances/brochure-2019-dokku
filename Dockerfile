@@ -23,4 +23,4 @@ COPY app /app
 WORKDIR /app
 
 ENTRYPOINT []
-CMD ["bin/run-dev.sh"]
+CMD ["bin/run-prod.sh"]
